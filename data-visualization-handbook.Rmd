@@ -1,0 +1,282 @@
+
+
+
+---
+
+title: "Visualization Handbook"
+
+output:
+
+  html_document:
+
+    number_sections: TRUE
+
+    toc: TRUE
+
+    fig_height: 4
+
+    fig_width: 7
+
+    code_folding: show
+
+---
+
+
+
+```{r setup, include=FALSE, echo=FALSE}
+
+knitr::opts_chunk$set(echo=TRUE)
+
+
+
+```
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+**What is Data Visualization**
+
+
+
+Data visualization is the presentation of data in a pictorial or graphical format. 
+
+It enables decision makers to see analytics presented visually, 
+
+so they can grasp difficult concepts or identify new patterns.
+
+With interactive visualization, you can take the concept a step further by using technology 
+
+to drill down into charts and graphs for more detail, interactively changing what data you see and how it’s processed.
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+**Why is data visualization important?**
+
+
+
+Because of the way the human brain processes information, using charts or graphs to visualize large amounts of complex data is easier than poring over spreadsheets or reports. Data visualization is a quick, easy way to convey concepts in a universal manner – and you can experiment with different scenarios by making slight adjustments.
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+
+
+**Data visualization can also:**
+
+
+
+->Identify areas that need attention or improvement.                                                                                                                                                                                                                        
+
+->Clarify which factors influence customer behavior.                                                                                                                                                                                                                        
+
+->Help you understand which products to place where.                                                                                                                                                                                                                        
+
+->Predict sales volumes.                                                                                                                                                                                                                        
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+**Most used packages in r for data visualization**
+
+```{r, message=FALSE, warning=FALSE , echo=FALSE}
+
+
+
+l<- c('quantmod','tidyquant','ggplot2' ,'patchwork' ,'ggiraph' ,'dygraphs','googleVis' ,'metricsgraphics','RColorBrewer','shiny','flexdashboard','rcdimple','plotly','highcharter')
+
+
+
+
+
+D <-c("Even if you're not interested in analyzing and graphing financial investment data, quantmod has easy-to-use functions for importing economic as well as financial data from sources like the Federal Reserve. ","Another financial package that's useful for importing, analyzing and visualizing data, integrating aspects of other popular finance packages as well as tidyverse tools. With thorough documentation.","Powerful, flexible and well-thought-out dataviz package following 'grammar of graphics' syntax to create static graphics, but be prepared for a steep learning curve. ","Easily combine ggplot2 plots and keep the new, merged plot a ggplot2 object. plot_layout() adds ability to set columns, rows, and relative sizes of each component graphic. ","Make ggplot2 plots interactive with this extension's new geom functions such geom_bar_interactive and arguments for tooltips and JavaScript onclicks.","Create HTML/JavaScript graphs of time series - one-line command if your data is an xts object.","Tap into the Google Charts API using R.","R interface to the metricsgraphics JavaScript library for bare-bones line, scatterplot and bar charts. ","Not a designer? RColorBrewer helps you select color pallettes for your visualizations. ","Turn R data into interactive Web applications. I've seen some nice (if sometimes sluggish) apps and it's got many enthusiasts.","If Shiny is too complex and involved for your needs, this package offers a simpler (if somewhat less robust) solution based on R Markdown.","R interface to the dimple JavaScript library with numerous customization options. Good choice for JavaScript bar charts, among others.","R interface to the Plotly JavaScript library that was open-sourced in late 2015. Basic graphs have a distinctive look which may not be for everyone, but it's full-featured, relatively easy to learn (especially if you know ggplot2) and includes a ggplotly() function to turn graphs created with ggplot2 interactive. ","R wrapper for the robust and well documented Highcharts JavaScript library, one of my favorite choices for presentation-quality interactive graphics. The package uses ggplot2-like syntax, including options for handling both long and wide data, and comes with plenty of examples. Note that apaid Highcharts license is needed to use this for commercial or government work (it's free for personal and non-profit projects).")
+
+
+
+table<- data.frame(l,D)
+
+colnames(table)<- c( "library", "description")
+
+library(knitr)
+
+
+
+kable(table)
+
+
+
+```
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+**There are four basic presentation types**   
+
+
+
+1. Comparison                                                                         
+
+2. Composition                                                                         
+
+3. Distribution                                                                         
+
+4. Relationship                                                                         
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+**To determine which amongst these is best suited for your data, I suggest you should answer a few questions like,**
+
+
+
+1. How many variables do you want to show in a single chart?                                                                                                                                                                                                                        
+
+2. How many data points will you display for each variable?                                                                                                                                                                                                                        
+
+3. Will you display values over a period of time, or among items or groups?                                                                                                                                                                                                                        
+
+
+
+                                                                         
+
+**Not sure what chart to choose?**                                                                         
+
+**Take a look at this,.**                                                                                                                                                  
+
+
+
+                                                                         
+
+                                                                
+
+
+
+<center><img src="https://cdn-images-1.medium.com/max/1600/1*JxbqIQmD_E3M3I7Tjo0OqA.jpeg"></center>         
+
+
+
+                                                                         
+
+                                                                         
+
+                                                               . 
+
+
+
+**Some links for Visualisation in R**                                                                                                                                                                                                                       
+
+
+
+
+
+1. [SHINY EXAMPLES](https://github.com/rstudio/shiny-examples)                                                                                                                                                                                                                        
+
+2. [Top 50 ggplot2 Visualizations](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)                                                                                                                                                                                                                        
+
+3. [Comprehensive Guide to Data Visualization in R](https://www.analyticsvidhya.com/blog/2015/07/guide-data-visualization-r/)                                                                                                                                                                                                                        
+
+4. [Interactive visualizations with R – a minireview](https://www.r-bloggers.com/interactive-visualizations-with-r-a-minireview/)                                                                                                                                                                                                                        
+
+5. [Beginner's guide to R: Painless data visualization](https://www.computerworld.com/article/2497304/business-intelligence/business-intelligence-beginner-s-guide-to-r-painless-data-visualization.html)                                                                                                                                                                                                                        
+
+6. [Data Visualization in R with ggvis](https://www.datacamp.com/courses/ggvis-data-visualization-r-tutorial)                                                                                                                                                                                                                        
+
+7. [Multiple Visualization Articles in R](http://www.r-statistics.com/tag/visualization/)                                                                                                                                                                                                                        
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
+
+**Some links for ggplot2**                                                                                                                                                                                                                       
+
+
+
+1. [ggplot2 tutorial](http://www.ling.upenn.edu/~joseff/avml2012/)                                                                                                                                                                                                                        
+
+2. [Good Tutorial!](https://github.com/jennybc/ggplot2-tutorial)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+3. [Introduction to ggplot2, GitHub](https://speakerdeck.com/karthik/introduction-to-ggplot2)                                                                                                                                                                                                                        
+
+4. [A quick introduction to ggplot()](http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html)                                                                                                                                                                                                                        
+
+5. [R Graphics cookbook](http://www.cookbook-r.com/Graphs/index.html)                                                                                                                                                                                                                        
+
+6. [ggplot2 Version of Figures in “Lattice: Multivariate Data Visualization with R”](https://learnr.wordpress.com/2009/06/28/ggplot2-version-of-figures-in-lattice-multivariate-data-visualization-with-r-part-1/)                                                                                                                                                                                                                        
+
+
+
+  
+
+
+
+**Thanks for reading. If you have any feedback, I'd love to hear! I appreciate all the feedback.**                                                         
+
+**Please like the kernel. Your likes are my motivation.**
+
+
+
+
+
+
+
+                                                                         
+
+                                                                         
+
+                                                                
+
+
